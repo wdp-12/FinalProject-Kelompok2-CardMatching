@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ffe3e1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; 
+}
+
+.button-container, .select-container {
+    text-align: center;
+}
+
+#play {
+    background-color: #ff9494;
+    color: #555753;
+    padding: 15px 50px;
+    border: none;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 50px !important;
+    font-family: 'Pixelify Sans', sans-serif;
+    transition: background-color 0.3s ease-in-out;
+}
+
+select {
+    width: 270px; 
+    height: auto; 
+    overflow: visible; 
+    border: none;
+}
+
+option {
+    background-color: #ffd1d1;
+    color: #555753;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Pixelify Sans', sans-serif;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 2px solid  #555753; 
+}
+
+option:hover {
+    background-color: #ff9494; 
+    color: white;
+    border: none;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color:#555753;
+}
+
+header i{
+    margin: 12px 8px;
+}
