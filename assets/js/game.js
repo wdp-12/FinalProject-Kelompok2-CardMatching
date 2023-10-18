@@ -5,15 +5,19 @@ const selectedLevel = urlParams.get('level');
 const cardData = {
   easy: {
     cardCount: 12,
-    cardImages: ['img/aurelia.svg', 'img/vue.svg', 'img/angular.svg', 'img/react.svg', 'img/backbone.svg', 'img/ember.svg'],
+    cardImages: ['assets/img/alpukat.png', 'assets/img/anggur.png', 'assets/img/apel.png', 'assets/img/bluebery.png', 'assets/img/chery.png', 'assets/img/jeruk.png'],
   },
   medium: {
     cardCount: 24,
-    cardImages: ['img/aurelia.svg', 'img/vue.svg', 'img/angular.svg', 'img/react.svg', 'img/backbone.svg'],
+    cardImages: ['assets/img/alpukat.png', 'assets/img/anggur.png', 'assets/img/apel.png', 'assets/img/bluebery.png', 'assets/img/chery.png', 'assets/img/jeruk.png', 
+                  'assets/img/durian.png', 'assets/img/jambu.png', 'assets/img/kiwi.png', 'assets/img/leci.png', 'assets/img/lemon.png', 'assets/img/mangga.png'],
   },
   hard: {
     cardCount: 40,
-    cardImages: ['img/aurelia.svg', 'img/vue.svg', 'img/angular.svg', 'img/react.svg', 'img/backbone.svg', 'img/ember.svg'],
+    cardImages: ['assets/img/alpukat.png', 'assets/img/anggur.png', 'assets/img/apel.png', 'assets/img/bluebery.png', 'assets/img/chery.png', 'assets/img/jeruk.png', 
+                  'assets/img/durian.png', 'assets/img/jambu.png', 'assets/img/kiwi.png', 'assets/img/leci.png', 'assets/img/lemon.png', 'assets/img/mangga.png',
+                  'assets/img/manggis.png', 'assets/img/melon.png', 'assets/img/nanas.png', 'assets/img/peach.png', 'assets/img/pear.png', 'assets/img/pisang.png',
+                  'assets/img/semangka.png', 'assets/img/stroberi.png'],
   },
 };
 
@@ -43,12 +47,12 @@ function createMemoryCards(selectedLevel) {
 
     const frontFace = document.createElement('img');
     frontFace.classList.add('front-face');
-    frontFace.src = cardImages[i % cardImages.length];
+    frontFace.src = duplicatedImages[i];;
     frontFace.alt = 'Front Face';
 
     const backFace = document.createElement('img');
     backFace.classList.add('back-face');
-    backFace.src = 'https://i.pinimg.com/736x/81/a6/32/81a63248e824a68a17e66ca5354f5865.jpg';
+    backFace.src = 'assets/img/backcard.png';
     backFace.alt = 'Back Face';
 
     card.appendChild(frontFace);
