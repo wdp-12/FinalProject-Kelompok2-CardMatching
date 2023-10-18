@@ -106,7 +106,11 @@ header i{
     background: #fff;
     backface-visibility: hidden;
   }
-  
+/* 
+.back-face{
+  display: none;
+} */
+
 .front-face {
     transform: rotateY(180deg);
     padding: 10px;

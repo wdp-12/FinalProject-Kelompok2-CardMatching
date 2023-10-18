@@ -28,11 +28,8 @@ function createMemoryCards(selectedLevel) {
   const { cardCount, cardImages } = cardData[selectedLevel];
   const columns = selectedLevel === 'easy' ? 4 : selectedLevel === 'medium' ? 6 : 8;
 
-  // Pilih setengah gambar dari cardImages
-  const selectedCardImages = cardImages.slice(0, cardImages.length / 2);
-
   // Duplicate gambar untuk menampilkan dua kartu yang sama
-  const duplicatedImages = selectedCardImages.concat(selectedCardImages);
+  const duplicatedImages = cardImages.concat(cardImages);
    
   // Untuk ngacak kartu
   for (let i = duplicatedImages.length - 1; i > 0; i--) {
