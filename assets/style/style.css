@@ -113,18 +113,18 @@ header i{
   }
   
 .memory-card.easy {
-  width: calc(25% - 10px);
-  height: calc(33% - 10px);
+  width: calc(15% - 10px);
+  height: calc(40% - 10px);
 }
 
 .memory-card.medium {
-  width: calc(16.5% - 10px);
-  height: calc(20% - 10px);
+  width: calc(12% - 10px);
+  height: calc(31% - 10px);
 }
 
 .memory-card.hard {
-  width: calc(12.5% - 10px);
-  height: calc(15% - 10px);
+  width: calc(10% - 10px);
+  height: calc(25% - 10px);
 }
 
 .timer-container {
