@@ -23,11 +23,17 @@ function createMemoryCards(selectedLevel) {
 
   const { cardCount, cardImages } = cardData[selectedLevel];
   const columns = selectedLevel === 'easy' ? 4 : selectedLevel === 'medium' ? 6 : 8;
-  
-  //untuk ngacak kartunya
-  for (let i = cardImages.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [cardImages[i], cardImages[j]] = [cardImages[j], cardImages[i]];
+
+  // Pilih setengah gambar dari cardImages
+  const selectedCardImages = cardImages.slice(0, cardImages.length / 2);
+
+  // Duplicate gambar untuk menampilkan dua kartu yang sama
+  const duplicatedImages = selectedCardImages.concat(selectedCardImages);
+   
+  // Untuk ngacak kartu
+  for (let i = duplicatedImages.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [duplicatedImages[i], duplicatedImages[j]] = [duplicatedImages[j], duplicatedImages[i]];
   }
 
   //untuk munculin kartunya
