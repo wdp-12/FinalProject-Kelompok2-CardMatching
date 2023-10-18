@@ -29,7 +29,7 @@ Anda dapat memainkan permainan dengan membuka file `index.html` di browser web A
 - [Annisa Maulida Rahma](https://instagram.com/_maulidaaar)
 - [Ferdinan Simbolon](https://linkprofilanda.com)
 - [M Rafhi Said Hafiz](https://instagram.com/rafhisa.id)
-- [Yabsir Aditya](https://www.instagram.com/yabsir.y)
+- [Yabsir Aditya](https://linkprofilanda.com)
 
 ## Grup 2 - Hacktiv8(MSIB - Web Developer)
 
