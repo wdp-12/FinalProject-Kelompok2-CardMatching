@@ -27,7 +27,7 @@ Anda dapat memainkan permainan dengan membuka file `index.html` di browser web A
 ## Pengembang 👨‍💻
 
 - [Annisa Maulida Rahma](https://instagram.com/_maulidaaar)
-- [Ferdinan Simbolon](https://linkprofilanda.com)
+- [Ferdinan Simbolon](https://www.instagram.com/ferdinann_03)
 - [M Rafhi Said Hafiz](https://instagram.com/rafhisa.id)
 - [Yabsir Aditya](https://www.instagram.com/yabsir.y/)
 
