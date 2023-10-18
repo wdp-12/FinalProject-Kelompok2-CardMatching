@@ -68,3 +68,83 @@ header {
 header i{
     margin: 12px 8px;
 }
+
+.memory-game {
+    width: 60vw;
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+.memory-card {
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  }
+  
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
+  
+.memory-card.flip {
+    transform: rotateY(180deg);
+  }
+  
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    background: #fff;
+    backface-visibility: hidden;
+  }
+  
+.front-face {
+    transform: rotateY(180deg);
+    padding: 10px;
+  }
+  
+.memory-card.easy {
+  width: calc(25% - 10px);
+  height: calc(33% - 10px);
+}
+
+.memory-card.medium {
+  width: calc(16.5% - 10px);
+  height: calc(20% - 10px);
+}
+
+.memory-card.hard {
+  width: calc(12.5% - 10px);
+  height: calc(15% - 10px);
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.timer {
+  background-color: #ff9494;
+  font-weight: bolder;
+  color: #555753;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 5px;
+}
+
+
