@@ -41,10 +41,11 @@ function createMemoryCards(selectedLevel) {
   for (let i = 0; i < cardCount; i++) {
     const card = document.createElement('div');
     card.classList.add('memory-card',selectedLevel);
+    card.dataset.src = duplicatedImages[i];
 
     const frontFace = document.createElement('img');
     frontFace.classList.add('front-face');
-    frontFace.src = duplicatedImages[i];;
+    frontFace.src = duplicatedImages[i];
     frontFace.alt = 'Front Face';
 
     const backFace = document.createElement('img');
@@ -63,3 +64,72 @@ function createMemoryCards(selectedLevel) {
 
 createMemoryCards(selectedLevel)
 
+const cards = document.querySelectorAll('.memory-card');
+
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+
+// Flip Card Function
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
+
+  this.classList.add('flip');
+
+  // sound effect kartu di click
+  const clickSound = new Audio('assets/sound/klik.mp3');
+  clickSound.currentTime = 0;//mengatur ulang audio ke awal
+  clickSound.play();
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+
+    return;
+  }
+
+  secondCard = this;
+  checkForMatch();
+}
+// Cek Match card
+function checkForMatch() {
+  let isMatch = firstCard.dataset.src === secondCard.dataset.src;
+
+  isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  // sound effect kartu match
+  const matchSound = new Audio('assets/sound/match.mp3');
+  matchSound.currentTime = 0;//mengatur ulang audio ke awal
+  matchSound.play();
+
+  resetBoard();
+}
+
+function unflipCards() {
+  lockBoard = true;
+
+  // sound effect kartu no match
+  const noMatchSound = new Audio('assets/sound/notmatch.mp3');
+  noMatchSound.currentTime = 0;//mengatur ulang audio ke awal
+  noMatchSound.play();
+
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+
+    resetBoard();
+  }, 1000);
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+cards.forEach(card => card.addEventListener('click', flipCard));
