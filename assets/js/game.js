@@ -99,6 +99,12 @@ function checkForMatch() {
   isMatch ? disableCards() : unflipCards();
 }
 
+//hentikan waktu
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
@@ -107,6 +113,10 @@ function disableCards() {
   const matchSound = new Audio('assets/sound/match.mp3');
   matchSound.currentTime = 0;//mengatur ulang audio ke awal
   matchSound.play();
+
+  if (document.querySelectorAll('.memory-card.flip').length === cards.length) {
+    stopTimer(); // Menghentikan waktu jika semua kartu cocok
+  }
 
   resetBoard();
 }
