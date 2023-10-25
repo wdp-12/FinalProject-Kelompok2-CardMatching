@@ -288,6 +288,22 @@ a:active{
   animation: slideDownFade 0.5s 0.5s forwards;
 }
 
+.message {
+  font-size: 60px;
+  font-weight: bold !important;
+  text-align: center;
+  padding: 30px;
+  background-color: #FFD1D1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
 /* animasi */
 @keyframes zoomDanFade {
   0% {

@@ -10,9 +10,38 @@ levelSelect.addEventListener('change', () => {
         memoryGame.style.visibility= 'visible';
         timerContainer.style.visibility= 'visible';
         container.style.visibility= 'hidden';
+
+        const message = document.querySelector('.message');
+        message.style.display = 'block';
+        setTimeout(() => {
+            message.textContent = 'Are you ready?';
+        }, 1000);
+
+        setTimeout(() => {
+            message.innerHTML = '3';
+            const countdown = document.getElementById('countdown');
+            countdown.volume =0.25;
+            countdown.play();
+        }, 2000); 
+
+        setTimeout(() => {
+            message.innerHTML = '2'
+        }, 3000); 
+
+        setTimeout(() => {
+            message.innerHTML = '1'
+        }, 4000)
+
+        setTimeout(() => {
+            message.innerHTML = 'BEGIN';
+        }, 5000)
+
+        setTimeout(() => {
+            message.style.display = 'none'; 
+        }, 7000); 
+
     }else{
         memoryGame.style.visibility= 'hidden';
-        timerContainer.style.visibility= 'hidden';
     }
 
     setupGame(selectedLevel);
