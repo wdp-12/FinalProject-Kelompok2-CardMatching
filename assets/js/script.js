@@ -2,6 +2,29 @@ const levelSelect = document.getElementById('levelSelect');
 const memoryGame = document.querySelector('.memory-game');
 const timerContainer = document.querySelector('.timer-container');
 const container = document.querySelector('.container');
+const nameInput = document.getElementById('name');
+const saveNameButton = document.getElementById('play');
+const playerNameElement = document.getElementById('playerNameDisplay');
+
+saveNameButton.addEventListener('click', () => {
+    const playerName = nameInput.value;
+
+    // Menyimpan nama pemain ke dalam Local Storage dengan key "playerName"
+    if (playerName) {
+        localStorage.setItem('playerName', playerName);
+        location.reload();
+    } else {
+        alert('Silakan masukkan nama pemain.');
+    }
+});
+
+// menampilkan nama pemain
+document.addEventListener('DOMContentLoaded', () => {
+    const savedPlayerName = localStorage.getItem('playerName');
+    if (savedPlayerName) {
+        playerNameElement.textContent = `Player: ${savedPlayerName}`;
+    }
+});
 
 levelSelect.addEventListener('change', () => {
     const selectedLevel = levelSelect.value;
