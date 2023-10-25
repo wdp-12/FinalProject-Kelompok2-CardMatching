@@ -72,6 +72,9 @@ header i{
 }
 
 .memory-game {
+    position:absolute;
+    top: 5%;
+    right: 20%;
     width: 60vw;
     height: 80vh;
     margin: auto;
@@ -105,13 +108,15 @@ header i{
     height: 100%;
     position: absolute;
     object-fit: contain;
+    border-radius: 10px;
+    /* backface-visibility: hidden;  */
   }
 
 .back-face{
   width: 100%;
   height: 100%;
   position: absolute;
-  backface-visibility: hidden;
+  display: none;
 }
 
 .front-face {
