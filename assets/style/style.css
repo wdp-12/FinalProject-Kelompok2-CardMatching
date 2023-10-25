@@ -136,6 +136,13 @@ header i{
   height: calc(22% - 10px);
 }
 
+#playerNameDisplay {
+  font-size: 25px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
 .timer-container {
   display: flex;
   justify-content: center; 
