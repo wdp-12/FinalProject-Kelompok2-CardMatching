@@ -57,6 +57,8 @@ levelSelect.addEventListener('change', () => {
         container.style.visibility = 'hidden';
 
         const message = document.querySelector('.message');
+        const overlayCountdown = document.querySelector('.overlaycountdown');
+        overlayCountdown.style.display = 'block';
         message.style.display = 'block';
         setTimeout(() => {
             message.textContent = 'Are you ready?';
@@ -82,6 +84,7 @@ levelSelect.addEventListener('change', () => {
         }, 5000)
 
         setTimeout(() => {
+            overlayCountdown.style.display = 'none';
             message.style.display = 'none';
         }, 7000);
 
@@ -232,4 +235,26 @@ function initializeGameLogic() {
 
 document.addEventListener('DOMContentLoaded', () => {
     setupGame(levelSelect.value)
+})
+
+// Mode Full Screen
+const fullScreen = document.getElementById("fullscreen");
+fullScreen.addEventListener('click', () => {
+  if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (document.documentElement.requestFullScreen) {
+      document.documentElement.requestFullScreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullScreen) {
+      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+  }
 })
