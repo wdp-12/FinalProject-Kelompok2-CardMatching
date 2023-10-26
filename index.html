@@ -34,14 +34,8 @@
 
     <div class="container">
         <div class="button-container">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" spellcheck="false" required>
-            <br>
-            <button id="play"><i class="fa-solid fa-play"></i>PLAY</button>
-        </div>
-        <!-- <div class="button-container">
             <button id="play"><i class="fa-solid fa-play"></i> PLAY</button>
-        </div> -->
+        </div>
         <div class="select-container">
             <select name="" id="levelSelect" size="3">
                 <option value="easy">Easy</option>
@@ -50,8 +44,7 @@
             </select>
         </div>
     </div>
-
-    <div id="playerNameDisplay">Player: </div>
+        
 
     <p class="message" style="display: none;">Are you ready?</p>
     <audio src="assets/sound/321.mp3" id="countdown"></audio>
@@ -62,31 +55,6 @@
     <div class="timer-container" style="visibility: hidden;">
         <div class="timer">
             Timer: <span id="timer">00:00</span>
-        </div>
-    </div>
-
-    <div id="gameClear">
-        <div class="game-clear-modal">
-            <div class="game-clear-content">
-                <p>Game Over : </p>
-                <p>Top 10 Players</p>
-                <table class="top-players">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Level</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody class="top-players-data">
-                        <tr>
-                            <td>Rafhi</td>
-                            <td>Hard</td>
-                            <td>01:00</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 
