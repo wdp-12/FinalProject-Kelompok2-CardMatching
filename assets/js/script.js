@@ -6,6 +6,23 @@ const nameInput = document.getElementById('name');
 const saveNameButton = document.getElementById('play');
 const playerNameElement = document.getElementById('playerNameDisplay');
 
+function saveNameAndShowPlayAndLevel() {
+    var playerNameInput = document.getElementById("playerName");
+    var playerName = playerNameInput.value;
+
+    if (playerName) {
+        localStorage.setItem("playerName", playerName);
+
+        var formContainer = document.querySelector(".form-container");
+        var playButtonContainer = document.querySelector(".button-container");
+        var levelSelectContainer = document.querySelector(".select-container");
+
+        formContainer.style.display = "none";
+        playButtonContainer.style.display = "block";
+        levelSelectContainer.style.display = "block";
+    }
+}
+
 function myFunction() {
     var element = document.body;
     element.classList.toggle("dark-mode");
