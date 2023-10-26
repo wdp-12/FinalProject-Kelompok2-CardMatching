@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +13,9 @@
 
 <body>
     <header>
-        <i id="fullscreen" class="fas fa-sharp fa-regular fa-expand fa-2x"></i>
-        <!--<i class="fas fa-solid fa-volume-xmark fa-2x" style="color: #555753;"></i>-->
-        <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
-        <div class="fas fa-gear fa-2x">
+        <div class="setting-menu">
             <input id="menu__toggle" type="checkbox" />
-            <label class="menu__btn" for="menu__toggle">
+            <label class="menu__btn fas fa-sharp fa-regular fa-gear fa-2x" for="menu__toggle">
                 <span></span>
             </label>
 
@@ -29,6 +27,12 @@
                 <li><a class="menu__item" href="bout.html">About</a></li>
             </ul>
         </div>
+
+        <div>
+            <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
+            <i id="fullscreen" class="fas fa-sharp fa-regular fa-expand fa-2x"></i>
+        </div>
+        <!--<i class="fas fa-solid fa-volume-xmark fa-2x" style="color: #555753;"></i>-->
     </header>
 
     <div class="container">
@@ -53,10 +57,10 @@
 
     <div id="playerNameDisplay">Player: </div>
     <div class="overlaycountdown" style="display: none;">
-        
 
-    <p class="message" style="display: none;">Are you ready?</p>
-    <audio src="assets/sound/321.mp3" id="countdown"></audio>
+
+        <p class="message" style="display: none;">Are you ready?</p>
+        <audio src="assets/sound/321.mp3" id="countdown"></audio>
     </div>
 
     <section class="memory-game" style="visibility: hidden;">
