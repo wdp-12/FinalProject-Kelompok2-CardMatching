@@ -106,6 +106,43 @@ body{
 
 .button-container, .select-container {
     text-align: center;
+    display: none;
+}
+
+.form-container {
+  font-size: 24px;
+  text-align: center;
+  position: fixed;
+  background-color: #FFD1D1;
+  padding: 20px;
+  width: 60%;
+  max-width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+}
+
+#startButton {
+  background-color:#ff9494;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 #play {
