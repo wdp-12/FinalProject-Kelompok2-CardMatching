@@ -396,6 +396,16 @@ a:active{
   z-index: 1;
 }
 
+.overlaycountdown {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
 /* animasi */
 @keyframes zoomDanFade {
   0% {

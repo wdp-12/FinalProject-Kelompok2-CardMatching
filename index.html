@@ -13,9 +13,9 @@
 
 <body>
     <header>
+        <i id="fullscreen" class="fas fa-sharp fa-regular fa-expand fa-2x"></i>
         <!--<i class="fas fa-solid fa-volume-xmark fa-2x" style="color: #555753;"></i>-->
         <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
-        
         <div class="fas fa-gear fa-2x">
             <input id="menu__toggle" type="checkbox" />
             <label class="menu__btn" for="menu__toggle">
@@ -52,9 +52,10 @@
     </div>
 
     <div id="playerNameDisplay">Player: </div>
-
+    <div class="overlaycountdown" style="display: none;">
     <p class="message" style="display: none;">Are you ready?</p>
     <audio src="assets/sound/321.mp3" id="countdown"></audio>
+    </div>
 
     <section class="memory-game" style="visibility: hidden;">
     </section>
