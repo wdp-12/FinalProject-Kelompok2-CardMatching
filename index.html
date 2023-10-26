@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,6 +32,13 @@
     </header>
 
     <div class="container">
+        <div class="form-container">
+            <form action="">
+                <label for="playerName">Enter Your Name:</label><br>
+                <input type="text" id="playerName" name="playerName" required>
+                <button type="button" id="startButton" onclick="saveNameAndShowPlayAndLevel()">Let's Go</button>
+            </form>
+        </div>
         <div class="button-container">
             <button id="play"><i class="fa-solid fa-play"></i> PLAY</button>
         </div>
