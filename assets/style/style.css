@@ -94,6 +94,10 @@ body{
   color: white;
 }
 
+.dark-mode .fas {
+  color: white;
+}
+
 
 .container {
     display: flex;
@@ -190,6 +194,10 @@ header {
 
 header i{
   margin: 12px 8px;
+}
+
+label {
+  color: #333;
 }
 
 .memory-game {
