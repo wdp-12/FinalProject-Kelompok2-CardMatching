@@ -203,6 +203,15 @@ function initializeGameLogic() {
 
         if (document.querySelectorAll('.memory-card.flip').length === cards.length) {
             stopTimer(); // Menghentikan waktu jika semua kartu cocok
+            // Sound Effect Win
+            const winSound = new Audio('assets/sound/gamewin.mp3');
+            winSound.currentTime = 0;//mengatur ulang audio ke awal
+            winSound.volume = 0.5;
+            winSound.play();
+            // Popup Leaderboard
+            setTimeout(() => {
+                leaderboard();
+            }, 1000);
         }
 
         resetBoard();
@@ -236,6 +245,20 @@ function initializeGameLogic() {
 document.addEventListener('DOMContentLoaded', () => {
     setupGame(levelSelect.value)
 })
+
+// Leaderboard Function
+function leaderboard(){
+    const leaderboard = document.querySelector('.popup')
+    
+    leaderboard.style.display = 'block';
+}
+
+// close Leaderboard
+function closeLeaderboard() {
+    const leaderboard = document.querySelector('.popup')
+    
+    leaderboard.style.display = 'none';
+}
 
 // Mode Full Screen
 const fullScreen = document.getElementById("fullscreen");

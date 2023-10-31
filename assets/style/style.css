@@ -98,6 +98,10 @@ body{
   color: white;
 }
 
+.dark-mode button {
+  color: white;
+}
+
 
 .container {
     display: flex;
@@ -448,6 +452,46 @@ a:active{
   top: 0;
   background: rgba(0,0,0,0.3);
   z-index: 10;
+}
+
+.popup {
+  padding: 20px;
+  background-color: #ffd1d1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: none;
+}
+
+table {
+  overflow-y:scroll;
+  height:180px;
+  width: 500px;
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+tr td {
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#nextButton {
+  background-color:#ff9494;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 /* animasi */

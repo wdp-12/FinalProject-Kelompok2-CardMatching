@@ -27,12 +27,13 @@
                 <li><a class="menu__item" href="bout.html">About</a></li>
             </ul>
         </div>
-
-        <div>
-            <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
+        <div style="margin-right: 10px;">
+            <label id="btnSound" onclick="backSound()">
+                <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
+                <!-- <i class="fas fa-sharp fa-regular fa-volume-xmark fa-2x"></i> -->
+            </label>
             <i id="fullscreen" class="fas fa-sharp fa-regular fa-expand fa-2x"></i>
         </div>
-        <!--<i class="fas fa-solid fa-volume-xmark fa-2x" style="color: #555753;"></i>-->
     </header>
 
     <div class="container">
@@ -57,10 +58,8 @@
 
     <div id="playerNameDisplay">Player: </div>
     <div class="overlaycountdown" style="display: none;">
-
-
         <p class="message" style="display: none;">Are you ready?</p>
-        <audio src="assets/sound/321.mp3" id="countdown"></audio>
+        <audio preload="none" src="assets/sound/321.mp3" id="countdown"></audio>
     </div>
 
     <section class="memory-game" style="visibility: hidden;">
@@ -70,6 +69,27 @@
         <div class="timer">
             Timer: <span id="timer">00:00</span>
         </div>
+    </div>
+
+    <div class="popup">
+        <i onclick="closeLeaderboard()" class="fas fa-sharp fa-regular fa-xmark fa-2x" style="justify-content: end; display: flex;"></i>
+        <h1 style="text-align: center; margin-bottom: 10px;">You Win...👏👏</h1>
+        <h1 style="text-align: center; margin-bottom: 10px;">leaderboard</h1>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Level</th>
+                <th>00:00</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Yabsir Aditya</td>
+                <td>Easy</td>
+                <td>00:20</td>
+            </tr>
+        </table>
+        <button type="button" id="nextButton">Next Level</button>
     </div>
 
     <script src="assets/js/script.js"></script>
