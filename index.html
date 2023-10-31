@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,15 @@
     <!--font awasome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <header>
-        <!--<i class="fas fa-solid fa-volume-xmark fa-2x" style="color: #555753;"></i>-->
-        <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
+        <div class="sound-toggle" id="soundToggle"><i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i></div>
+        <audio id="gameAudio" loop>
+            <source src="backsound.mp3" type="audio/mpeg">
+        </audio>
+        </i>
+        <!-- <i class="fas fa-solid fa-volume-xmark fa-2x"></i> -->
         <i class="fas fa-gear fa-2x"></i>
     </header>
 
@@ -21,14 +27,15 @@
             <button id="play"><i class="fa-solid fa-play"></i> PLAY</button>
         </div>
         <div class="select-container">
-            <select name="" id="levelSelect" size="3">
+            <select name="" id="levelSelect" size="3">                                                              
                 <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
+                <option value="medium">Medium</option>  
                 <option value="hard">Hard</option>
             </select>
         </div>
     </div>
-    
+
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
