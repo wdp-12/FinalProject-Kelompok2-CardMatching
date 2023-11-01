@@ -2,22 +2,18 @@ const levelSelect = document.getElementById('levelSelect');
 const memoryGame = document.querySelector('.memory-game');
 const timerContainer = document.querySelector('.timer-container');
 const container = document.querySelector('.container');
-const nameInput = document.getElementById('name');
-const saveNameButton = document.getElementById('play');
-const playerNameElement = document.getElementById('playerNameDisplay');
-const nextButton = document.getElementById('nextButton');
 const leaderboardPopup = document.querySelector('.popup');
+const playerNameInput = document.getElementById("playerName");
 
 const playerData = [
-    { name: 'Annisa', level: 'Easy', timer: '00:30'},
-    { name: 'Rafhi', level: 'Medium', timer: '01:15'},
-    { name: 'Yabsir', level: 'Hard', timer: '01:45'},
-    { name: 'Ferdinan', level: 'Easy', timer: '00:45'},
+    { name: 'Annisa', level: 'easy', timer: '00:30'},
+    { name: 'Rafhi', level: 'medium', timer: '01:15'},
+    { name: 'Yabsir', level: 'hard', timer: '01:45'},
+    { name: 'Ferdinan', level: 'easy', timer: '00:45'},
 ];
 localStorage.setItem('leaderboard', JSON.stringify(playerData));
 
 function saveNameAndShowPlayAndLevel() {
-    var playerNameInput = document.getElementById("playerName");
     var playerName = playerNameInput.value;
 
     if (playerName) {
@@ -190,6 +186,7 @@ function initializeGameLogic() {
 
         if (document.querySelectorAll('.memory-card.flip').length === cards.length) {
             stopTimer(); // Menghentikan waktu jika semua kartu cocok
+            saveData();
             // Sound Effect Win
             const winSound = new Audio('assets/sound/gamewin.mp3');
             winSound.currentTime = 0;//mengatur ulang audio ke awal
@@ -234,23 +231,24 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-saveNameButton.addEventListener('click', () => {
-    const playerName = nameInput.value;
+function saveData() {
+    const playerName = playerNameInput.value;
     const selectedLevel = levelSelect.value;
-    var playerData = {
-        name: playerName,
-        level: selectedLevel,
-        timer: '00:00'
-    };
-    
-    const playerDataJson = JSON.stringify(playerData);
+    if (playerName && selectedLevel) {
 
-    // Push data to localStorage
-    localStorage.setItem('leaderboard', playerDataJson);
+        const leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
 
-    // Display new leaderboard data
-    leaderboard();
-});
+        // Tambahkan data pemain baru ke array leaderboard
+        leaderboardData.push({
+            name: playerName,
+            level: selectedLevel,
+            timer: '00:00'
+        });
+
+        // Simpan data leaderboard yang sudah diperbarui kembali ke Local Storage
+        localStorage.setItem('leaderboard', JSON.stringify(leaderboardData));
+    }
+}
 
 // Leaderboard Function
 function leaderboard() {
@@ -258,8 +256,6 @@ function leaderboard() {
     const leaderboardTable = leaderboardPopup.querySelector('table');
     const leaderboardData = JSON.parse(localStorage.getItem('leaderboard'));
     if (leaderboardData) {
-        leaderboardData.sort((a, b) => b.score - a.score);
-
         leaderboardData.forEach((player, index) => {
             const row = leaderboardTable.insertRow(-1);
             const cellNo = row.insertCell(0);
@@ -271,8 +267,8 @@ function leaderboard() {
             cellName.textContent = player.name;
             cellLevel.textContent = player.level;
             cellTimer.textContent = player.timer;
-        });
-    }
+    });
+}
 
     leaderboardPopup.style.display = 'block';
 }
