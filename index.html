@@ -39,11 +39,13 @@
     <div class="container">
         <div class="form-container">
             <form action="">
+                <button onclick="leaderboard()">Tampilkan Leaderboard</button>
                 <label for="playerName">Enter Your Name:</label><br>
                 <input type="text" id="playerName" name="playerName" required>
                 <button type="button" id="startButton" onclick="saveNameAndShowPlayAndLevel()">Let's Go</button>
             </form>
         </div>
+        
         <div class="button-container">
             <button id="play"><i class="fa-solid fa-play"></i> PLAY</button>
         </div>
@@ -56,7 +58,7 @@
         </div>
     </div>
 
-    <div id="playerNameDisplay">Player: </div>
+    <div id="playerNameDisplay" style="visibility: hidden;">Player: </div>
     <div class="overlaycountdown" style="display: none;">
         <p class="message" style="display: none;">Are you ready?</p>
         <audio preload="none" src="assets/sound/321.mp3" id="countdown"></audio>
@@ -73,20 +75,14 @@
 
     <div class="popup">
         <i onclick="closeLeaderboard()" class="fas fa-sharp fa-regular fa-xmark fa-2x" style="justify-content: end; display: flex;"></i>
-        <h1 style="text-align: center; margin-bottom: 10px;">You Win...👏👏</h1>
-        <h1 style="text-align: center; margin-bottom: 10px;">leaderboard</h1>
+        <h1 class="text">Congratulations 👏👏</h1>
+        <h1>Leaderboard</h1>
         <table>
             <tr>
                 <th>No</th>
                 <th>Nama</th>
                 <th>Level</th>
-                <th>00:00</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Yabsir Aditya</td>
-                <td>Easy</td>
-                <td>00:20</td>
+                <th>Timer</th>
             </tr>
         </table>
         <button type="button" id="nextButton">Next Level</button>
