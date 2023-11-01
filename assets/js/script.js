@@ -5,6 +5,8 @@ const container = document.querySelector('.container');
 const nameInput = document.getElementById('name');
 const saveNameButton = document.getElementById('play');
 const playerNameElement = document.getElementById('playerNameDisplay');
+const nextButton = document.getElementById('nextButton');
+const leaderboardPopup = document.querySelector('.popup');
 
 const playerData = [
     { name: 'Annisa', level: 'Easy', timer: '00:30'},
@@ -304,3 +306,34 @@ fullScreen.addEventListener('click', () => {
   }
 })
 
+playAgain.addEventListener('click', () => {
+    const selectedLevel = levelSelect.value;
+    let newLevel;
+    if (selectedLevel === 'easy') {
+        leaderboardPopup.style.display = 'none';
+        newLevel = 'easy';
+    }else if (selectedLevel === 'medium') {
+        leaderboardPopup.style.display = 'none';
+        newLevel = 'medium';
+    }else if (selectedLevel === 'hard') {
+        leaderboardPopup.style.display = 'none';
+        newLevel = 'hard';
+    }
+    setupGame(newLevel);
+});
+
+next.addEventListener('click', () => {
+    const selectedLevel = levelSelect.value;
+    let newLevel;
+    if (selectedLevel === 'easy') {
+        leaderboardPopup.style.display = 'none';
+        newLevel = 'medium';
+    }else if (selectedLevel === 'medium') {
+        leaderboardPopup.style.display = 'none';
+        newLevel = 'hard';
+    }else if (selectedLevel === 'hard') {
+        leaderboardPopup.style.display = 'none';
+        newLevel = 'easy';
+    }
+    setupGame(newLevel);
+});
