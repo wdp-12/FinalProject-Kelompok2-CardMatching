@@ -6,13 +6,19 @@ const nameInput = document.getElementById('name');
 const saveNameButton = document.getElementById('play');
 const playerNameElement = document.getElementById('playerNameDisplay');
 
+const playerData = [
+    { name: 'Annisa', level: 'Easy', timer: '00:30'},
+    { name: 'Rafhi', level: 'Medium', timer: '01:15'},
+    { name: 'Yabsir', level: 'Hard', timer: '01:45'},
+    { name: 'Ferdinan', level: 'Easy', timer: '00:45'},
+];
+localStorage.setItem('leaderboard', JSON.stringify(playerData));
+
 function saveNameAndShowPlayAndLevel() {
     var playerNameInput = document.getElementById("playerName");
     var playerName = playerNameInput.value;
 
     if (playerName) {
-        localStorage.setItem("playerName", playerName);
-
         var formContainer = document.querySelector(".form-container");
         var playButtonContainer = document.querySelector(".button-container");
         var levelSelectContainer = document.querySelector(".select-container");
@@ -28,29 +34,8 @@ function myFunction() {
     element.classList.toggle("dark-mode");
 }
 
-saveNameButton.addEventListener('click', () => {
-    const playerName = nameInput.value;
-
-    // Menyimpan nama pemain ke dalam Local Storage dengan key "playerName"
-    if (playerName) {
-        localStorage.setItem('playerName', playerName);
-        location.reload();
-    } else {
-        alert('Silakan masukkan nama pemain.');
-    }
-});
-
-// menampilkan nama pemain
-document.addEventListener('DOMContentLoaded', () => {
-    const savedPlayerName = localStorage.getItem('playerName');
-    if (savedPlayerName) {
-        playerNameElement.textContent = `Player: ${savedPlayerName}`;
-    }
-});
-
 levelSelect.addEventListener('change', () => {
     const selectedLevel = levelSelect.value;
-
     if (selectedLevel === 'easy' || selectedLevel === 'medium' || selectedLevel === 'hard') {
         memoryGame.style.visibility = 'visible';
         timerContainer.style.visibility = 'visible';
@@ -244,13 +229,50 @@ function initializeGameLogic() {
 
 document.addEventListener('DOMContentLoaded', () => {
     setupGame(levelSelect.value)
+    
 })
 
-// Leaderboard Function
-function leaderboard(){
-    const leaderboard = document.querySelector('.popup')
+saveNameButton.addEventListener('click', () => {
+    const playerName = nameInput.value;
+    const selectedLevel = levelSelect.value;
+    var playerData = {
+        name: playerName,
+        level: selectedLevel,
+        timer: '00:00'
+    };
     
-    leaderboard.style.display = 'block';
+    const playerDataJson = JSON.stringify(playerData);
+
+    // Push data to localStorage
+    localStorage.setItem('leaderboard', playerDataJson);
+
+    // Display new leaderboard data
+    leaderboard();
+});
+
+// Leaderboard Function
+function leaderboard() {
+    const leaderboardPopup = document.querySelector('.popup');
+    const leaderboardTable = leaderboardPopup.querySelector('table');
+    const leaderboardData = JSON.parse(localStorage.getItem('leaderboard'));
+    if (leaderboardData) {
+        leaderboardData.sort((a, b) => b.score - a.score);
+
+        leaderboardData.forEach((player, index) => {
+            const row = leaderboardTable.insertRow(-1);
+            const cellNo = row.insertCell(0);
+            const cellName = row.insertCell(1);
+            const cellLevel = row.insertCell(2);
+            const cellTimer = row.insertCell(3);
+
+            cellNo.textContent = index + 1;
+            cellName.textContent = player.name;
+            cellLevel.textContent = player.level;
+            cellTimer.textContent = player.timer;
+        });
+    }
+
+    leaderboardPopup.style.display = 'block';
 }
 
 // close Leaderboard
@@ -281,3 +303,4 @@ fullScreen.addEventListener('click', () => {
     }
   }
 })
+

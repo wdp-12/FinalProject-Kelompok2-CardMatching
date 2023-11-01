@@ -269,13 +269,6 @@ label {
   height: calc(22% - 10px);
 }
 
-#playerNameDisplay {
-  font-size: 25px;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-}
-
 .timer-container {
   display: flex;
   justify-content: center; 
@@ -494,6 +487,19 @@ tr td {
   font-size: 20px;
 }
 
+
+.popup h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: normal;
+
+}
+.popup .text{
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: serif;
+}
 /* animasi */
 @keyframes zoomDanFade {
   0% {
