@@ -39,7 +39,7 @@
     <div class="container">
         <div class="form-container">
             <form action="">
-                <button onclick="leaderboard()">Tampilkan Leaderboard</button>
+                <!-- <button onclick="leaderboard()">Tampilkan Leaderboard</button> -->
                 <label for="playerName">Enter Your Name:</label><br>
                 <input type="text" id="playerName" name="playerName" required>
                 <button type="button" id="startButton" onclick="saveNameAndShowPlayAndLevel()">Let's Go</button>
@@ -85,7 +85,10 @@
                 <th>Timer</th>
             </tr>
         </table>
-        <button type="button" id="nextButton">Next Level</button>
+        <div class="duaTombol">
+            <i class="fa-solid fa-arrow-right fa-2xl" id="next"></i>
+            <button type="button" id="playAgain">Play Again</button>
+        </div>
     </div>
 
     <script src="assets/js/script.js"></script>
