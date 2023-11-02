@@ -106,25 +106,19 @@ body{
   color: white;
 }
 
-.dark-mode .fas {
+.dark-mode .fas ,.dark-mode button ,.dark-mode .message,.dark-mode .timer{
   color: white;
 }
 
-.dark-mode button {
-  color: white;
-}
-
-.dark-mode #startButton,.dark-mode .message,
+.dark-mode #startButton,
 .dark-mode .popup,.dark-mode .popup i,
-.dark-mode #playAgain,
-.dark-mode .timer {
+.dark-mode #playAgain{
   color: black !important;
 }
 
-.dark-mode input {
-  border: 1px solid #000;
+.dark-mode .form-container {
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2);
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -444,13 +438,11 @@ a:active{
 }
 
 .message {
+  font-family: serif;
   font-size: 60px;
   font-weight: bold !important;
   text-align: center;
   padding: 30px;
-  background-color: #FFD1D1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
   display: none;
   position: absolute;
   top: 50%;
@@ -527,6 +519,7 @@ tr td {
 
 #playAgain {
   background-color: #ff9494;
+  color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;

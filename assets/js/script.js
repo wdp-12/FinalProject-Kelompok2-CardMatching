@@ -9,7 +9,7 @@ const playerData = [
     { name: 'Annisa', level: 'easy', timer: '00:30'},
     { name: 'Rafhi', level: 'medium', timer: '01:15'},
     { name: 'Yabsir', level: 'hard', timer: '01:45'},
-    { name: 'Ferdinan', level: 'easy', timer: '00:45'},
+    { name: 'Ferdinan', level: 'easy', timer: '00:50'},
 ];
 localStorage.setItem('leaderboard', JSON.stringify(playerData));
 
@@ -85,7 +85,7 @@ function countdown() {
     setTimeout(() => {
         message.innerHTML = '3';
         const countdown = document.getElementById('countdown');
-        countdown.volume = 0.25;
+        countdown.volume = 0.2;
         countdown.play();
     }, 2000);
 
@@ -98,7 +98,7 @@ function countdown() {
     }, 4000)
 
     setTimeout(() => {
-        message.innerHTML = 'BEGIN';
+        message.innerHTML = 'Begin';
     }, 5000)
 
     setTimeout(() => {
@@ -227,10 +227,10 @@ function initializeGameLogic() {
         matchSound.currentTime = 0;//mengatur ulang audio ke awal
         matchSound.volume = 0.5;
         matchSound.play();
-
+        const timer = document.getElementById('timer').textContent;
         if (document.querySelectorAll('.memory-card.flip').length === cards.length) {
             stopTimer(); // Menghentikan waktu jika semua kartu cocok
-            saveData();
+            saveData(timer);
             // Sound Effect Win
             const winSound = new Audio('assets/sound/gamewin.mp3');
             winSound.currentTime = 0;//mengatur ulang audio ke awal
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-function saveData() {
+function saveData(timer) {
     const playerName = playerNameInput.value;
     const selectedLevel = levelSelect.value;
     if (playerName && selectedLevel) {
@@ -286,7 +286,7 @@ function saveData() {
         leaderboardData.push({
             name: playerName,
             level: selectedLevel,
-            timer: '00:00'
+            timer: timer
         });
 
         // Simpan data leaderboard yang sudah diperbarui kembali ke Local Storage
