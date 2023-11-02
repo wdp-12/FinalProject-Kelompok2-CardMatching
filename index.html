@@ -21,9 +21,6 @@
             </label>
 
             <ul class="menu__box">
-                <li>
-                    <a class="menu__item"><button class="toggle-dark" onclick="myFunction()"></button></a>
-                </li>
                 <li><a class="menu__item" href="index.html">Home</a></li>
                 <li><a class="menu__item" href="bout.html">About</a></li>
             </ul>
@@ -31,7 +28,6 @@
         <div style="margin-right: 10px;">
             <label id="btnSound" onclick="backSound()">
                 <i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>
-                <!-- <i class="fas fa-sharp fa-regular fa-volume-xmark fa-2x"></i> -->
             </label>
             <i id="fullscreen" class="fas fa-sharp fa-regular fa-expand fa-2x"></i>
         </div>
@@ -92,8 +88,11 @@
         </div>
     </div>
 
+    <audio preload="none" id="backsound" autoplay loop>
+        <source src="assets/sound/autoplay.mp3" type="audio/wav">
+    </audio>
+
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/timer.js"></script>
 </body>
 
 </html>

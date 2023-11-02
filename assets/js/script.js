@@ -32,6 +32,81 @@ function myFunction() {
     element.classList.toggle("dark-mode");
 }
 
+// Timer Game 
+let timerInterval;
+
+function startTimer() {
+    let countdown = 5;
+    let timer = 0;
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+        const minutes = Math.floor((timer % 3600) / 60);
+        const seconds = timer % 60;
+
+        const formattedTime =
+            padZero(minutes) + ':' + padZero(seconds);
+
+        if (countdown > 0) {
+            countdown--;
+            startPlay = true;
+        } else {
+            if (startPlay) {
+                startPlay = false;
+                timer = 0;
+            }
+            timer++;
+        }
+        timerElement.textContent = formattedTime;
+
+    }
+
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function padZero(number) {
+    return (number < 10 ? '0' : '') + number;
+}
+
+document.getElementById('levelSelect').addEventListener('click', function () {
+    startTimer();
+});
+
+// Countdown Game
+function countdown() {
+    const message = document.querySelector('.message');
+    const overlayCountdown = document.querySelector('.overlaycountdown');
+    overlayCountdown.style.display = 'block';
+    message.style.display = 'block';
+    setTimeout(() => {
+        message.textContent = 'Are you ready?';
+    }, 1000);
+
+    setTimeout(() => {
+        message.innerHTML = '3';
+        const countdown = document.getElementById('countdown');
+        countdown.volume = 0.25;
+        countdown.play();
+    }, 2000);
+
+    setTimeout(() => {
+        message.innerHTML = '2'
+    }, 3000);
+
+    setTimeout(() => {
+        message.innerHTML = '1'
+    }, 4000)
+
+    setTimeout(() => {
+        message.innerHTML = 'BEGIN';
+    }, 5000)
+
+    setTimeout(() => {
+        overlayCountdown.style.display = 'none';
+        message.style.display = 'none';
+    }, 7000);
+}
+
 levelSelect.addEventListener('change', () => {
     const selectedLevel = levelSelect.value;
     if (selectedLevel === 'easy' || selectedLevel === 'medium' || selectedLevel === 'hard') {
@@ -39,38 +114,7 @@ levelSelect.addEventListener('change', () => {
         timerContainer.style.visibility = 'visible';
         container.style.visibility = 'hidden';
 
-        const message = document.querySelector('.message');
-        const overlayCountdown = document.querySelector('.overlaycountdown');
-        overlayCountdown.style.display = 'block';
-        message.style.display = 'block';
-        setTimeout(() => {
-            message.textContent = 'Are you ready?';
-        }, 1000);
-
-        setTimeout(() => {
-            message.innerHTML = '3';
-            const countdown = document.getElementById('countdown');
-            countdown.volume = 0.25;
-            countdown.play();
-        }, 2000);
-
-        setTimeout(() => {
-            message.innerHTML = '2'
-        }, 3000);
-
-        setTimeout(() => {
-            message.innerHTML = '1'
-        }, 4000)
-
-        setTimeout(() => {
-            message.innerHTML = 'BEGIN';
-        }, 5000)
-
-        setTimeout(() => {
-            overlayCountdown.style.display = 'none';
-            message.style.display = 'none';
-        }, 7000);
-
+        countdown();
     } else {
         memoryGame.style.visibility = 'hidden';
     }
@@ -302,18 +346,43 @@ fullScreen.addEventListener('click', () => {
   }
 })
 
+// Backsound Music
+const backsound = document.getElementById("backsound");
+backsound.volume = 0.5;
+const btn = document.getElementById("btnSound");
+
+const unmuteIcon = '<i class="fas fa-solid fa-volume-xmark fa-2x"></i>'
+
+const muteIcon = '<i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>'
+
+function backSound() {
+  backsound.muted = !backsound.muted;
+
+  if (backsound.muted) {
+    btn.innerHTML = unmuteIcon;
+  } else {
+    btn.innerHTML = muteIcon;
+  }
+}
+
 playAgain.addEventListener('click', () => {
     const selectedLevel = levelSelect.value;
     let playAgain;
     if (selectedLevel === 'easy') {
         leaderboardPopup.style.display = 'none';
         playAgain = 'easy';
+        countdown();
+        startTimer();
     }else if (selectedLevel === 'medium') {
         leaderboardPopup.style.display = 'none';
         playAgain = 'medium';
+        countdown();
+        startTimer();
     }else if (selectedLevel === 'hard') {
         leaderboardPopup.style.display = 'none';
         playAgain = 'hard';
+        countdown();
+        startTimer();
     }
     setupGame(playAgain);
 });
@@ -324,12 +393,18 @@ next.addEventListener('click', () => {
     if (selectedLevel === 'easy') {
         leaderboardPopup.style.display = 'none';
         nextLevel = 'medium';
+        countdown();
+        startTimer();
     }else if (selectedLevel === 'medium') {
         leaderboardPopup.style.display = 'none';
         nextLevel = 'hard';
+        countdown();
+        startTimer();
     }else if (selectedLevel === 'hard') {
         leaderboardPopup.style.display = 'none';
         nextLevel = 'easy';
+        countdown();
+        startTimer();
     }
     setupGame(nextLevel);
 });
