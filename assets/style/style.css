@@ -55,6 +55,7 @@ body{
   border-radius: 15px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
+  z-index: 3;
 }
 .menu__item {
   display: block;
@@ -65,9 +66,6 @@ body{
   font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
-}
-.menu__item:hover {
-  background-color: #ffe3e1;
 }
 
 .toggle-dark {
