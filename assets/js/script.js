@@ -304,32 +304,32 @@ fullScreen.addEventListener('click', () => {
 
 playAgain.addEventListener('click', () => {
     const selectedLevel = levelSelect.value;
-    let newLevel;
+    let playAgain;
     if (selectedLevel === 'easy') {
         leaderboardPopup.style.display = 'none';
-        newLevel = 'easy';
+        playAgain = 'easy';
     }else if (selectedLevel === 'medium') {
         leaderboardPopup.style.display = 'none';
-        newLevel = 'medium';
+        playAgain = 'medium';
     }else if (selectedLevel === 'hard') {
         leaderboardPopup.style.display = 'none';
-        newLevel = 'hard';
+        playAgain = 'hard';
     }
-    setupGame(newLevel);
+    setupGame(playAgain);
 });
 
 next.addEventListener('click', () => {
     const selectedLevel = levelSelect.value;
-    let newLevel;
+    let nextLevel;
     if (selectedLevel === 'easy') {
         leaderboardPopup.style.display = 'none';
-        newLevel = 'medium';
+        nextLevel = 'medium';
     }else if (selectedLevel === 'medium') {
         leaderboardPopup.style.display = 'none';
-        newLevel = 'hard';
+        nextLevel = 'hard';
     }else if (selectedLevel === 'hard') {
         leaderboardPopup.style.display = 'none';
-        newLevel = 'easy';
+        nextLevel = 'easy';
     }
-    setupGame(newLevel);
+    setupGame(nextLevel);
 });
