@@ -36,7 +36,7 @@
     <div class="container">
         <div class="form-container">
             <form action="">
-                <!-- <button onclick="leaderboard()">Tampilkan Leaderboard</button> -->
+                <button onclick="leaderboard()">Tampilkan Leaderboard</button>
                 <label for="playerName">Enter Your Name:</label><br>
                 <input type="text" id="playerName" name="playerName" required>
                 <button type="button" id="startButton" onclick="saveNameAndShowPlayAndLevel()">Let's Go</button>
@@ -74,6 +74,15 @@
         <i onclick="closeLeaderboard()" class="fas fa-sharp fa-regular fa-xmark fa-2x" style="justify-content: end; display: flex;"></i>
         <h1 class="text">Congratulations 👏👏</h1>
         <h1>Leaderboard</h1>
+        <div class="level-filter-container">
+            <select id="levelFilter">
+              <option value="all"></i> Highscore🏆</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+                
         <table>
             <tr>
                 <th>No</th>
