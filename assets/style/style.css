@@ -514,8 +514,29 @@ tr td {
 .duaTombol {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Untuk membuat ikon dan tombol rata secara vertikal */
+  align-items: center;
   margin-top: 10px;
+}
+
+.level-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  text-align: center; 
+}
+
+
+.level-filter-container select {
+  border: none;
+  background-color:#555753;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
 }
 
 #next {

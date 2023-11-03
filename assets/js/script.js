@@ -10,6 +10,11 @@ const playerData = [
     { name: 'Rafhi', level: 'medium', timer: '01:15'},
     { name: 'Yabsir', level: 'hard', timer: '01:45'},
     { name: 'Ferdinan', level: 'easy', timer: '00:50'},
+    { name: 'Anyongs', level: 'medium', timer: '01:22'},
+    { name: 'Siapa hayow', level: 'Hard', timer: '01:48'},
+    { name: 'Onih', level: 'easy', timer: '00:51'},
+    { name: 'Raimu', level: 'medium', timer: '01:30'},
+    { name: 'Sisir', level: 'hard', timer: '02:10'},
 ];
 localStorage.setItem('leaderboard', JSON.stringify(playerData));
 
@@ -298,9 +303,13 @@ function saveData(timer) {
 function leaderboard() {
     const leaderboardPopup = document.querySelector('.popup');
     const leaderboardTable = leaderboardPopup.querySelector('table');
+    leaderboardTable.innerHTML = '';
     const leaderboardData = JSON.parse(localStorage.getItem('leaderboard'));
-    if (leaderboardData) {
-        leaderboardData.forEach((player, index) => {
+    const levelFilter = document.getElementById('levelFilter');
+    const selectedLevel = levelFilter.value;
+
+    leaderboardData.forEach((player, index) => {
+        if (selectedLevel === 'all' || player.level === selectedLevel) {
             const row = leaderboardTable.insertRow(-1);
             const cellNo = row.insertCell(0);
             const cellName = row.insertCell(1);
@@ -311,16 +320,17 @@ function leaderboard() {
             cellName.textContent = player.name;
             cellLevel.textContent = player.level;
             cellTimer.textContent = player.timer;
+        }
     });
-}
-
     leaderboardPopup.style.display = 'block';
 }
+
+const levelFilter = document.getElementById('levelFilter');
+levelFilter.addEventListener('change', leaderboard);
 
 // close Leaderboard
 function closeLeaderboard() {
     const leaderboard = document.querySelector('.popup')
-    
     leaderboard.style.display = 'none';
 }
 
