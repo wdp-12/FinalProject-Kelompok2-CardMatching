@@ -29,6 +29,8 @@ function saveNameAndShowPlayAndLevel() {
         formContainer.style.display = "none";
         playButtonContainer.style.display = "block";
         levelSelectContainer.style.display = "block";
+    }else {
+        alert("Please enter your name");
     }
 }
 
@@ -307,7 +309,7 @@ function leaderboard() {
     const leaderboardData = JSON.parse(localStorage.getItem('leaderboard'));
     const levelFilter = document.getElementById('levelFilter');
     const selectedLevel = levelFilter.value;
-
+    let displayIndex = 1; //
     leaderboardData.forEach((player, index) => {
         if (selectedLevel === 'all' || player.level === selectedLevel) {
             const row = leaderboardTable.insertRow(-1);
@@ -316,10 +318,12 @@ function leaderboard() {
             const cellLevel = row.insertCell(2);
             const cellTimer = row.insertCell(3);
 
-            cellNo.textContent = index + 1;
+            cellNo.textContent = displayIndex;
             cellName.textContent = player.name;
             cellLevel.textContent = player.level;
             cellTimer.textContent = player.timer;
+
+            displayIndex++;
         }
     });
     leaderboardPopup.style.display = 'block';

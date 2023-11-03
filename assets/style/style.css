@@ -75,6 +75,7 @@ body{
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  margin-top: 19px;
 }
 
 .toggle-dark::before {
@@ -168,9 +169,10 @@ input {
 }
 
 #play {
+    font-weight: bold;
     background-color: #ff9494;
     color: #555753;
-    padding: 15px 50px;
+    padding: 10px 45px;
     border: none;
     margin-bottom: 2px;
     border-radius: 5px;
@@ -190,7 +192,7 @@ select {
 option {
     background-color: #ffd1d1;
     color: #555753;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     font-family: 'Pixelify Sans', sans-serif;
     padding: 15px 20px;
