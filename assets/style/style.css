@@ -138,15 +138,10 @@ body{
 .form-container {
   font-size: 24px;
   text-align: center;
-  position: fixed;
   background-color: #FFD1D1;
   padding: 20px;
   width: 60%;
   max-width: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
 }
@@ -186,7 +181,7 @@ input {
 }
 
 select {
-    width: 270px; 
+    width: 390px; 
     height: auto; 
     overflow: visible; 
     border: none;
@@ -455,6 +450,13 @@ a:active{
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+.thumb {
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
 }
 
 .overlaycountdown {
