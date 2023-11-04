@@ -361,16 +361,17 @@ fullScreen.addEventListener('click', () => {
 })
 
 // Backsound Music
-const backsound = document.getElementById("backsound");
 backsound.volume = 0.5;
+function backSound() {
+const backsound = document.getElementById("backsound");
+
 const btn = document.getElementById("btnSound");
 
 const unmuteIcon = '<i class="fas fa-solid fa-volume-xmark fa-2x"></i>'
 
 const muteIcon = '<i class="fas fa-sharp fa-regular fa-volume-high fa-2x"></i>'
 
-function backSound() {
-  backsound.muted = !backsound.muted;
+backsound.muted = !backsound.muted;
 
   if (backsound.muted) {
     btn.innerHTML = unmuteIcon;
